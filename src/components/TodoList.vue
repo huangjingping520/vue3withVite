@@ -4,13 +4,21 @@ import { useMouse } from '../utils/mouse'
 
 let { x, y } = useMouse()
 
-let { title, todos, addTodo, clear, active, all, allDone } = useTodos()
+let { title, todos, showModal, addTodo, clear, active, all, allDone } = useTodos()
 
 function useTodos () {
   let title = ref('')
   let todos = ref([{title:'study', done:false}])
+  let showModal = ref(false)
 
   function addTodo() {
+    if (!title.value) {
+      showModal.value = true
+      setTimeout(() => {
+        showModal.value = false
+      }, 1500)
+      return
+    }
     todos.value.push({
       title: title.value,
       done: false
@@ -50,6 +58,10 @@ function useTodos () {
       y: {{ y }}
     </div>
 
+    <div class="info-wrapper" v-if="showModal">
+      <div class="info">输入为空</div>
+    </div>
+
     <input type="text" v-model="title" @keydown.enter="addTodo" >
     <button v-if="active < all" @click="clear">清理</button>
     <ul v-if="todos.length">
@@ -67,7 +79,19 @@ function useTodos () {
 </template>
 
 <style scoped>
-  h1{
-    color: red;
-  }
+h1{
+  color: red;
+}
+
+.info-wrapper {
+  position: fixed;
+  top: 20px;
+  width: 200px;
+}
+
+.info {
+  padding: 20px;
+  color: white;
+  background: blue;
+}
 </style>
