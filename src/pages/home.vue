@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>home page</h1>
+    <Count />
+
     <ClickAdd />
     <button @click="toggle">FullScreen</button>
     <TodoList />
@@ -12,6 +14,7 @@
 import TodoList from '../components/TodoList.vue'
 import Rate from '../components/Rate.vue'
 import ClickAdd from '../components/ClickAdd.vue'
+import Count from '../components/Count.vue'
 
 let score = ref(3.5)
 function update(num) {
