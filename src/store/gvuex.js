@@ -10,11 +10,25 @@ function createStore(options) {
 }
 
 class Store {
+  install(app) {
+    app.provide(STORE_KEY, this)
+  }
+
   constructor(options) {
+    this.$options = options
     this._state = reactive({
-      data: options.state()
+      data: options.state
     })
     this._mutations = options.mutations
+  }
+
+  get state() {
+    return this._state.data
+  }
+
+  commit = (type, payload) => {
+    const entry = this._mutations[type]
+    entry && entry(this.state, payload)
   }
 }
 
