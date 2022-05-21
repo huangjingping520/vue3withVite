@@ -6,7 +6,6 @@
     <router-link to="/">
       首页
     </router-link>
-    <span> | </span>
     <router-link to="/about">
       关于
     </router-link>
