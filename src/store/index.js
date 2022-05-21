@@ -3,26 +3,26 @@
 const store = createStore({
   state() {
     return {
-      count: 666
+      count: 666,
     }
   },
   getters: {
-    double (state) {
+    double(state) {
       return state.count * 2
-    }
+    },
   },
   mutations: {
-    add (state) {
+    add(state) {
       state.count++
-    }
+    },
   },
   actions: {
-    asyncAdd ({ commit }) {
+    asyncAdd({ commit }) {
       setTimeout(() => {
         commit('add')
       }, 1000)
-    }
-  }
+    },
+  },
 })
 
 export default store

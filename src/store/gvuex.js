@@ -17,7 +17,7 @@ class Store {
   constructor(options) {
     this.$options = options
     this._state = reactive({
-      data: options.state
+      data: options.state,
     })
     this._mutations = options.mutations
   }

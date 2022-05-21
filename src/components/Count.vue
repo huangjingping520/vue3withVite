@@ -1,7 +1,7 @@
 <script setup>
-let store = useStore()
-let count = computed(() => store.state.count)
-let double = computed(() => store.getters.double)
+const store = useStore()
+const count = computed(() => store.state.count)
+const double = computed(() => store.getters.double)
 function add() {
   store.commit('add')
 }
@@ -16,7 +16,9 @@ function asyncAdd() {
       {{ count }} | {{ double }}
     </div>
 
-    <button @click="asyncAdd">asyncAdd</button>
+    <button @click="asyncAdd">
+      asyncAdd
+    </button>
   </div>
 </template>
 
