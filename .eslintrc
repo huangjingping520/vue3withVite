@@ -6,6 +6,11 @@
       "warn",
       "never"
     ],
-    "@typescript-eslint/comma-dangle": "off"
+    "@typescript-eslint/comma-dangle": "off",
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
+    "no-console": "off"
   }
 }
