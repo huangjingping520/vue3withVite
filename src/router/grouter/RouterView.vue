@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from '../grouter/index'
 
-let router = useRouter()
+const router = useRouter()
 const comp = computed(() => {
   const route = router.routes.find(
     route => route.path === router.current.value
@@ -12,6 +12,6 @@ const comp = computed(() => {
 
 <template>
   <div>
-    <component :is="comp"></component>
+    <component :is="comp" />
   </div>
 </template>

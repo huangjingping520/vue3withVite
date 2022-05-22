@@ -4,7 +4,6 @@ import RouterView from './RouterView.vue'
 
 const ROUTER_KEY = '__router__'
 
-
 function createRouter(options) {
   return new Router(options)
 }
@@ -37,8 +36,8 @@ class Router {
 
   install(app) {
     app.provide(ROUTER_KEY, this)
-    app.component('router-link', RouterLink)
-    app.component('router-view', RouterView)
+    app.component('RouterLink', RouterLink)
+    app.component('RouterView', RouterView)
   }
 }
 

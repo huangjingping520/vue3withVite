@@ -1,5 +1,5 @@
 <script setup>
-let props = defineProps({
+const props = defineProps({
   to: {
     type: String,
     required: true
@@ -9,8 +9,8 @@ let props = defineProps({
 
 <template>
   <div>
-    <a :href="'#' + props.to">
-      <slot></slot>
+    <a :href="`#${props.to}`">
+      <slot />
     </a>
   </div>
 </template>

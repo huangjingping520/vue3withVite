@@ -69,7 +69,7 @@ function useTodos() {
       清理
     </button>
     <ul v-if="todos.length">
-      <li v-for="todo in todos">
+      <li v-for="todo in todos" :key="todo">
         <input v-model="todo.done" type="checkbox">
         <span :class="{ done: todo.done }">{{ todo.title }}</span>
       </li>
@@ -85,7 +85,7 @@ function useTodos() {
 </template>
 
 <style scoped>
-h1{
+h1 {
   color: red;
 }
 
